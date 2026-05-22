@@ -1,0 +1,152 @@
+|VgaDriver
+clock50 => clock50.IN1
+reset => reset.IN2
+red[0] => red[0].IN1
+red[1] => red[1].IN1
+blue[0] => blue[0].IN1
+blue[1] => blue[1].IN1
+green[0] => green[0].IN1
+green[1] => green[1].IN1
+hsync << hsync.DB_MAX_OUTPUT_PORT_TYPE
+vsync << vsync.DB_MAX_OUTPUT_PORT_TYPE
+red_display[0] << Mux:red_mux.display
+red_display[1] << Mux:red_mux.display
+red_display[2] << Mux:red_mux.display
+red_display[3] << Mux:red_mux.display
+blue_display[0] << Mux:blue_mux.display
+blue_display[1] << Mux:blue_mux.display
+blue_display[2] << Mux:blue_mux.display
+blue_display[3] << Mux:blue_mux.display
+green_display[0] << Mux:green_mux.display
+green_display[1] << Mux:green_mux.display
+green_display[2] << Mux:green_mux.display
+green_display[3] << Mux:green_mux.display
+
+
+|VgaDriver|ClockDivider:clock_divider
+clock50 => toggle.CLK
+reset => toggle.ACLR
+enable_n <= toggle.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaDriver|SyncCount:sync_count
+enable_n => vsync~reg0.CLK
+enable_n => hsync~reg0.CLK
+enable_n => v_counter[0].CLK
+enable_n => v_counter[1].CLK
+enable_n => v_counter[2].CLK
+enable_n => v_counter[3].CLK
+enable_n => v_counter[4].CLK
+enable_n => v_counter[5].CLK
+enable_n => v_counter[6].CLK
+enable_n => v_counter[7].CLK
+enable_n => v_counter[8].CLK
+enable_n => v_counter[9].CLK
+enable_n => h_counter[0].CLK
+enable_n => h_counter[1].CLK
+enable_n => h_counter[2].CLK
+enable_n => h_counter[3].CLK
+enable_n => h_counter[4].CLK
+enable_n => h_counter[5].CLK
+enable_n => h_counter[6].CLK
+enable_n => h_counter[7].CLK
+enable_n => h_counter[8].CLK
+enable_n => h_counter[9].CLK
+reset => vsync~reg0.ACLR
+reset => hsync~reg0.ACLR
+reset => v_counter[0].ACLR
+reset => v_counter[1].ACLR
+reset => v_counter[2].ACLR
+reset => v_counter[3].ACLR
+reset => v_counter[4].ACLR
+reset => v_counter[5].ACLR
+reset => v_counter[6].ACLR
+reset => v_counter[7].ACLR
+reset => v_counter[8].ACLR
+reset => v_counter[9].ACLR
+reset => h_counter[0].ACLR
+reset => h_counter[1].ACLR
+reset => h_counter[2].ACLR
+reset => h_counter[3].ACLR
+reset => h_counter[4].ACLR
+reset => h_counter[5].ACLR
+reset => h_counter[6].ACLR
+reset => h_counter[7].ACLR
+reset => h_counter[8].ACLR
+reset => h_counter[9].ACLR
+hsync <= hsync~reg0.DB_MAX_OUTPUT_PORT_TYPE
+vsync <= vsync~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaDriver|Decoder:red_dec
+color_in[0] => color_out[2].DATAIN
+color_in[0] => color_out[0].DATAIN
+color_in[1] => color_out[3].DATAIN
+color_in[1] => color_out[1].DATAIN
+color_out[0] <= color_in[0].DB_MAX_OUTPUT_PORT_TYPE
+color_out[1] <= color_in[1].DB_MAX_OUTPUT_PORT_TYPE
+color_out[2] <= color_in[0].DB_MAX_OUTPUT_PORT_TYPE
+color_out[3] <= color_in[1].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaDriver|Mux:red_mux
+vsync => always0.IN0
+hsync => always0.IN1
+color[0] => display.DATAB
+color[1] => display.DATAB
+color[2] => display.DATAB
+color[3] => display.DATAB
+display[0] <= display.DB_MAX_OUTPUT_PORT_TYPE
+display[1] <= display.DB_MAX_OUTPUT_PORT_TYPE
+display[2] <= display.DB_MAX_OUTPUT_PORT_TYPE
+display[3] <= display.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaDriver|Decoder:green_dec
+color_in[0] => color_out[2].DATAIN
+color_in[0] => color_out[0].DATAIN
+color_in[1] => color_out[3].DATAIN
+color_in[1] => color_out[1].DATAIN
+color_out[0] <= color_in[0].DB_MAX_OUTPUT_PORT_TYPE
+color_out[1] <= color_in[1].DB_MAX_OUTPUT_PORT_TYPE
+color_out[2] <= color_in[0].DB_MAX_OUTPUT_PORT_TYPE
+color_out[3] <= color_in[1].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaDriver|Mux:green_mux
+vsync => always0.IN0
+hsync => always0.IN1
+color[0] => display.DATAB
+color[1] => display.DATAB
+color[2] => display.DATAB
+color[3] => display.DATAB
+display[0] <= display.DB_MAX_OUTPUT_PORT_TYPE
+display[1] <= display.DB_MAX_OUTPUT_PORT_TYPE
+display[2] <= display.DB_MAX_OUTPUT_PORT_TYPE
+display[3] <= display.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaDriver|Decoder:blue_dec
+color_in[0] => color_out[2].DATAIN
+color_in[0] => color_out[0].DATAIN
+color_in[1] => color_out[3].DATAIN
+color_in[1] => color_out[1].DATAIN
+color_out[0] <= color_in[0].DB_MAX_OUTPUT_PORT_TYPE
+color_out[1] <= color_in[1].DB_MAX_OUTPUT_PORT_TYPE
+color_out[2] <= color_in[0].DB_MAX_OUTPUT_PORT_TYPE
+color_out[3] <= color_in[1].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VgaDriver|Mux:blue_mux
+vsync => always0.IN0
+hsync => always0.IN1
+color[0] => display.DATAB
+color[1] => display.DATAB
+color[2] => display.DATAB
+color[3] => display.DATAB
+display[0] <= display.DB_MAX_OUTPUT_PORT_TYPE
+display[1] <= display.DB_MAX_OUTPUT_PORT_TYPE
+display[2] <= display.DB_MAX_OUTPUT_PORT_TYPE
+display[3] <= display.DB_MAX_OUTPUT_PORT_TYPE
+
+
