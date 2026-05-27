@@ -1,5 +1,5 @@
 Analysis & Synthesis report for VGA
-Thu May 21 11:35:50 2026
+Wed May 27 14:18:37 2026
 Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 
 
@@ -14,9 +14,10 @@ Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. General Register Statistics
-  9. Post-Synthesis Netlist Statistics for Top Partition
- 10. Elapsed Time Per Partition
- 11. Analysis & Synthesis Messages
+  9. Port Connectivity Checks: "SyncCount:sync_count"
+ 10. Post-Synthesis Netlist Statistics for Top Partition
+ 11. Elapsed Time Per Partition
+ 12. Analysis & Synthesis Messages
 
 
 
@@ -43,13 +44,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu May 21 11:35:50 2026       ;
+; Analysis & Synthesis Status        ; Successful - Wed May 27 14:18:37 2026       ;
 ; Quartus Prime Version              ; 21.1.0 Build 842 10/21/2021 SJ Lite Edition ;
 ; Revision Name                      ; VGA                                         ;
 ; Top-level Entity Name              ; VgaDriver                                   ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 44                                          ;
-;     Total combinational functions  ; 44                                          ;
+; Total logic elements               ; 45                                          ;
+;     Total combinational functions  ; 45                                          ;
 ;     Dedicated logic registers      ; 23                                          ;
 ; Total registers                    ; 23                                          ;
 ; Total pins                         ; 22                                          ;
@@ -166,17 +167,17 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                             ;
-+----------------------------------+-----------------+------------------------------+------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                         ; Library ;
-+----------------------------------+-----------------+------------------------------+------------------------------------------------------+---------+
-; VgaDriver.sv                     ; yes             ; User SystemVerilog HDL File  ; /home/charlesmaebi/ECE204/VGA_driver/VgaDriver.sv    ;         ;
-; ClockDivider.sv                  ; yes             ; User SystemVerilog HDL File  ; /home/charlesmaebi/ECE204/VGA_driver/ClockDivider.sv ;         ;
-; SyncCount.sv                     ; yes             ; User SystemVerilog HDL File  ; /home/charlesmaebi/ECE204/VGA_driver/SyncCount.sv    ;         ;
-; Decoder.sv                       ; yes             ; User SystemVerilog HDL File  ; /home/charlesmaebi/ECE204/VGA_driver/Decoder.sv      ;         ;
-; Mux.sv                           ; yes             ; User SystemVerilog HDL File  ; /home/charlesmaebi/ECE204/VGA_driver/Mux.sv          ;         ;
-+----------------------------------+-----------------+------------------------------+------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                           ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                       ; Library ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------+---------+
+; VgaDriver.sv                     ; yes             ; User SystemVerilog HDL File  ; /home/charlesmaebi/FPGA-VGA/driver/VgaDriver.sv    ;         ;
+; ClockDivider.sv                  ; yes             ; User SystemVerilog HDL File  ; /home/charlesmaebi/FPGA-VGA/driver/ClockDivider.sv ;         ;
+; SyncCount.sv                     ; yes             ; User SystemVerilog HDL File  ; /home/charlesmaebi/FPGA-VGA/driver/SyncCount.sv    ;         ;
+; Decoder.sv                       ; yes             ; User SystemVerilog HDL File  ; /home/charlesmaebi/FPGA-VGA/driver/Decoder.sv      ;         ;
+; Mux.sv                           ; yes             ; User SystemVerilog HDL File  ; /home/charlesmaebi/FPGA-VGA/driver/Mux.sv          ;         ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------+---------+
 
 
 +---------------------------------------------------------------------------------+
@@ -184,16 +185,16 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------------------------------+
 ; Resource                                    ; Usage                             ;
 +---------------------------------------------+-----------------------------------+
-; Estimated Total logic elements              ; 44                                ;
+; Estimated Total logic elements              ; 45                                ;
 ;                                             ;                                   ;
-; Total combinational functions               ; 44                                ;
+; Total combinational functions               ; 45                                ;
 ; Logic element usage by number of LUT inputs ;                                   ;
 ;     -- 4 input functions                    ; 8                                 ;
 ;     -- 3 input functions                    ; 7                                 ;
-;     -- <=2 input functions                  ; 29                                ;
+;     -- <=2 input functions                  ; 30                                ;
 ;                                             ;                                   ;
 ; Logic elements by mode                      ;                                   ;
-;     -- normal mode                          ; 26                                ;
+;     -- normal mode                          ; 27                                ;
 ;     -- arithmetic mode                      ; 18                                ;
 ;                                             ;                                   ;
 ; Total registers                             ; 23                                ;
@@ -206,7 +207,7 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;                                   ;
 ; Maximum fan-out node                        ; ClockDivider:clock_divider|toggle ;
 ; Maximum fan-out                             ; 23                                ;
-; Total fan-out                               ; 223                               ;
+; Total fan-out                               ; 225                               ;
 ; Average fan-out                             ; 2.01                              ;
 +---------------------------------------------+-----------------------------------+
 
@@ -216,12 +217,12 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------+--------------+--------------+
 ; Compilation Hierarchy Node      ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                   ; Entity Name  ; Library Name ;
 +---------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------+--------------+--------------+
-; |VgaDriver                      ; 44 (0)              ; 23 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 22   ; 0            ; 0          ; |VgaDriver                            ; VgaDriver    ; work         ;
+; |VgaDriver                      ; 45 (0)              ; 23 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 22   ; 0            ; 0          ; |VgaDriver                            ; VgaDriver    ; work         ;
 ;    |ClockDivider:clock_divider| ; 1 (1)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |VgaDriver|ClockDivider:clock_divider ; ClockDivider ; work         ;
 ;    |Mux:blue_mux|               ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |VgaDriver|Mux:blue_mux               ; Mux          ; work         ;
 ;    |Mux:green_mux|              ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |VgaDriver|Mux:green_mux              ; Mux          ; work         ;
 ;    |Mux:red_mux|                ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |VgaDriver|Mux:red_mux                ; Mux          ; work         ;
-;    |SyncCount:sync_count|       ; 37 (37)             ; 22 (22)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |VgaDriver|SyncCount:sync_count       ; SyncCount    ; work         ;
+;    |SyncCount:sync_count|       ; 38 (38)             ; 22 (22)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |VgaDriver|SyncCount:sync_count       ; SyncCount    ; work         ;
 +---------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------+--------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -241,6 +242,15 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 
 
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "SyncCount:sync_count"                                                                                                                        ;
++-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                      ;
++-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; color ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
@@ -250,17 +260,17 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; cycloneiii_ff         ; 23                          ;
 ;     CLR               ; 13                          ;
 ;     ENA CLR           ; 10                          ;
-; cycloneiii_lcell_comb ; 44                          ;
+; cycloneiii_lcell_comb ; 45                          ;
 ;     arith             ; 18                          ;
 ;         2 data inputs ; 18                          ;
-;     normal            ; 26                          ;
+;     normal            ; 27                          ;
 ;         1 data inputs ; 3                           ;
-;         2 data inputs ; 8                           ;
+;         2 data inputs ; 9                           ;
 ;         3 data inputs ; 7                           ;
 ;         4 data inputs ; 8                           ;
 ;                       ;                             ;
 ; Max LUT depth         ; 3.00                        ;
-; Average LUT depth     ; 2.26                        ;
+; Average LUT depth     ; 2.28                        ;
 +-----------------------+-----------------------------+
 
 
@@ -279,41 +289,42 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
-    Info: Processing started: Thu May 21 11:35:42 2026
+    Info: Processing started: Wed May 27 14:18:30 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off VGA -c VGA
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file VgaDriver.sv
-    Info (12023): Found entity 1: VgaDriver File: /home/charlesmaebi/ECE204/VGA_driver/VgaDriver.sv Line: 6
+    Info (12023): Found entity 1: VgaDriver File: /home/charlesmaebi/FPGA-VGA/driver/VgaDriver.sv Line: 6
 Info (12021): Found 1 design units, including 1 entities, in source file ClockDivider.sv
-    Info (12023): Found entity 1: ClockDivider File: /home/charlesmaebi/ECE204/VGA_driver/ClockDivider.sv Line: 2
+    Info (12023): Found entity 1: ClockDivider File: /home/charlesmaebi/FPGA-VGA/driver/ClockDivider.sv Line: 2
 Info (12021): Found 1 design units, including 1 entities, in source file SyncCount.sv
-    Info (12023): Found entity 1: SyncCount File: /home/charlesmaebi/ECE204/VGA_driver/SyncCount.sv Line: 1
+    Info (12023): Found entity 1: SyncCount File: /home/charlesmaebi/FPGA-VGA/driver/SyncCount.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file Decoder.sv
-    Info (12023): Found entity 1: Decoder File: /home/charlesmaebi/ECE204/VGA_driver/Decoder.sv Line: 2
-Warning (12090): Entity "Mux" obtained from "Mux.sv" instead of from Quartus Prime megafunction library File: /home/charlesmaebi/ECE204/VGA_driver/Mux.sv Line: 1
+    Info (12023): Found entity 1: Decoder File: /home/charlesmaebi/FPGA-VGA/driver/Decoder.sv Line: 2
+Warning (12090): Entity "Mux" obtained from "Mux.sv" instead of from Quartus Prime megafunction library File: /home/charlesmaebi/FPGA-VGA/driver/Mux.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file Mux.sv
-    Info (12023): Found entity 1: Mux File: /home/charlesmaebi/ECE204/VGA_driver/Mux.sv Line: 1
+    Info (12023): Found entity 1: Mux File: /home/charlesmaebi/FPGA-VGA/driver/Mux.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file VgaTestbench.sv
-    Info (12023): Found entity 1: VgaTestbench File: /home/charlesmaebi/ECE204/VGA_driver/VgaTestbench.sv Line: 30
+    Info (12023): Found entity 1: VgaTestbench File: /home/charlesmaebi/FPGA-VGA/driver/VgaTestbench.sv Line: 30
 Info (12127): Elaborating entity "VgaDriver" for the top level hierarchy
-Info (12128): Elaborating entity "ClockDivider" for hierarchy "ClockDivider:clock_divider" File: /home/charlesmaebi/ECE204/VGA_driver/VgaDriver.sv Line: 26
-Info (12128): Elaborating entity "SyncCount" for hierarchy "SyncCount:sync_count" File: /home/charlesmaebi/ECE204/VGA_driver/VgaDriver.sv Line: 33
-Warning (10230): Verilog HDL assignment warning at SyncCount.sv(27): truncated value with size 32 to match size of target (10) File: /home/charlesmaebi/ECE204/VGA_driver/SyncCount.sv Line: 27
-Warning (10230): Verilog HDL assignment warning at SyncCount.sv(30): truncated value with size 32 to match size of target (10) File: /home/charlesmaebi/ECE204/VGA_driver/SyncCount.sv Line: 30
-Info (12128): Elaborating entity "Decoder" for hierarchy "Decoder:red_dec" File: /home/charlesmaebi/ECE204/VGA_driver/VgaDriver.sv Line: 38
-Info (12128): Elaborating entity "Mux" for hierarchy "Mux:red_mux" File: /home/charlesmaebi/ECE204/VGA_driver/VgaDriver.sv Line: 45
+Info (12128): Elaborating entity "ClockDivider" for hierarchy "ClockDivider:clock_divider" File: /home/charlesmaebi/FPGA-VGA/driver/VgaDriver.sv Line: 26
+Info (12128): Elaborating entity "SyncCount" for hierarchy "SyncCount:sync_count" File: /home/charlesmaebi/FPGA-VGA/driver/VgaDriver.sv Line: 33
+Warning (10230): Verilog HDL assignment warning at SyncCount.sv(28): truncated value with size 32 to match size of target (10) File: /home/charlesmaebi/FPGA-VGA/driver/SyncCount.sv Line: 28
+Warning (10230): Verilog HDL assignment warning at SyncCount.sv(31): truncated value with size 32 to match size of target (10) File: /home/charlesmaebi/FPGA-VGA/driver/SyncCount.sv Line: 31
+Info (12128): Elaborating entity "Decoder" for hierarchy "Decoder:red_dec" File: /home/charlesmaebi/FPGA-VGA/driver/VgaDriver.sv Line: 38
+Info (12128): Elaborating entity "Mux" for hierarchy "Mux:red_mux" File: /home/charlesmaebi/FPGA-VGA/driver/VgaDriver.sv Line: 45
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 66 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 67 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 8 input pins
     Info (21059): Implemented 14 output pins
-    Info (21061): Implemented 44 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 468 megabytes
-    Info: Processing ended: Thu May 21 11:35:50 2026
-    Info: Elapsed time: 00:00:08
-    Info: Total CPU time (on all processors): 00:00:20
+    Info (21061): Implemented 45 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 466 megabytes
+    Info: Processing ended: Wed May 27 14:18:37 2026
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:18
 
 

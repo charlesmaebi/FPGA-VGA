@@ -1,12 +1,12 @@
-Fitter Status : Successful - Thu May 21 11:35:58 2026
+Fitter Status : Successful - Wed May 27 14:18:46 2026
 Quartus Prime Version : 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 Revision Name : VGA
 Top-level Entity Name : VgaDriver
 Family : MAX 10
 Device : 10M50DAF484C7G
 Timing Models : Final
-Total logic elements : 46 / 49,760 ( < 1 % )
-    Total combinational functions : 45 / 49,760 ( < 1 % )
+Total logic elements : 47 / 49,760 ( < 1 % )
+    Total combinational functions : 46 / 49,760 ( < 1 % )
     Dedicated logic registers : 23 / 49,760 ( < 1 % )
 Total registers : 23
 Total pins : 22 / 360 ( 6 % )

@@ -74,6 +74,7 @@ reset => h_counter[6].ACLR
 reset => h_counter[7].ACLR
 reset => h_counter[8].ACLR
 reset => h_counter[9].ACLR
+color => ~NO_FANOUT~
 hsync <= hsync~reg0.DB_MAX_OUTPUT_PORT_TYPE
 vsync <= vsync~reg0.DB_MAX_OUTPUT_PORT_TYPE
 

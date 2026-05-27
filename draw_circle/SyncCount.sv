@@ -19,7 +19,7 @@ always_ff @(posedge enable_n or posedge reset) begin
 	end
 	else begin 
 
-		if (h_counter == 800) begin 
+		if (h_counter == 799) begin 
 			h_counter <= 10'd0;  
 
 			if (v_counter == 524)  
