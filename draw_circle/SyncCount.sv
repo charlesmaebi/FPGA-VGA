@@ -3,12 +3,10 @@ module SyncCount(
 	input logic reset,
 	input logic color,
 	output logic hsync,
-	output logic vsync
+	output logic vsync, 
+	output logic [9:0] h_counter,
+	output logic [9:0] v_counter
 );
-
-
-logic [9:0] h_counter;
-logic [9:0] v_counter;
 
 always_ff @(posedge enable_n or posedge reset) begin
 	if (reset) begin 
