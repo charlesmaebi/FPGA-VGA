@@ -1,26 +1,84 @@
 |TopLevel
-clock50 => clock50.IN1
-reset => reset.IN4
-hsync << hsync.DB_MAX_OUTPUT_PORT_TYPE
-vsync << vsync.DB_MAX_OUTPUT_PORT_TYPE
-red_display[0] << Mux:red_mux.display
-red_display[1] << Mux:red_mux.display
-red_display[2] << Mux:red_mux.display
-red_display[3] << Mux:red_mux.display
-blue_display[0] << Mux:blue_mux.display
-blue_display[1] << Mux:blue_mux.display
-blue_display[2] << Mux:blue_mux.display
-blue_display[3] << Mux:blue_mux.display
-green_display[0] << Mux:green_mux.display
-green_display[1] << Mux:green_mux.display
-green_display[2] << Mux:green_mux.display
-green_display[3] << Mux:green_mux.display
+clock50 => clock50.IN3
+reset => reset.IN5
+hsync <= hsync.DB_MAX_OUTPUT_PORT_TYPE
+vsync <= vsync.DB_MAX_OUTPUT_PORT_TYPE
+red_display[0] <= Mux:red_mux.display
+red_display[1] <= Mux:red_mux.display
+red_display[2] <= Mux:red_mux.display
+red_display[3] <= Mux:red_mux.display
+blue_display[0] <= Mux:blue_mux.display
+blue_display[1] <= Mux:blue_mux.display
+blue_display[2] <= Mux:blue_mux.display
+blue_display[3] <= Mux:blue_mux.display
+green_display[0] <= Mux:green_mux.display
+green_display[1] <= Mux:green_mux.display
+green_display[2] <= Mux:green_mux.display
+green_display[3] <= Mux:green_mux.display
 
 
 |TopLevel|ClockDivider:clock_divider
 clock50 => toggle.CLK
 reset => toggle.ACLR
 enable_n <= toggle.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopLevel|Clock:clock
+clock => pulse_clock~reg0.CLK
+clock => clk_count[0].CLK
+clock => clk_count[1].CLK
+clock => clk_count[2].CLK
+clock => clk_count[3].CLK
+clock => clk_count[4].CLK
+clock => clk_count[5].CLK
+clock => clk_count[6].CLK
+clock => clk_count[7].CLK
+clock => clk_count[8].CLK
+clock => clk_count[9].CLK
+clock => clk_count[10].CLK
+clock => clk_count[11].CLK
+clock => clk_count[12].CLK
+clock => clk_count[13].CLK
+clock => clk_count[14].CLK
+clock => clk_count[15].CLK
+clock => clk_count[16].CLK
+clock => clk_count[17].CLK
+clock => clk_count[18].CLK
+clock => clk_count[19].CLK
+clock => clk_count[20].CLK
+clock => clk_count[21].CLK
+clock => clk_count[22].CLK
+clock => clk_count[23].CLK
+clock => clk_count[24].CLK
+clock => clk_count[25].CLK
+reset => pulse_clock~reg0.ACLR
+reset => clk_count[0].ACLR
+reset => clk_count[1].ACLR
+reset => clk_count[2].ACLR
+reset => clk_count[3].ACLR
+reset => clk_count[4].ACLR
+reset => clk_count[5].ACLR
+reset => clk_count[6].ACLR
+reset => clk_count[7].ACLR
+reset => clk_count[8].ACLR
+reset => clk_count[9].ACLR
+reset => clk_count[10].ACLR
+reset => clk_count[11].ACLR
+reset => clk_count[12].ACLR
+reset => clk_count[13].ACLR
+reset => clk_count[14].ACLR
+reset => clk_count[15].ACLR
+reset => clk_count[16].ACLR
+reset => clk_count[17].ACLR
+reset => clk_count[18].ACLR
+reset => clk_count[19].ACLR
+reset => clk_count[20].ACLR
+reset => clk_count[21].ACLR
+reset => clk_count[22].ACLR
+reset => clk_count[23].ACLR
+reset => clk_count[24].ACLR
+reset => clk_count[25].ACLR
+pulse_clock <= pulse_clock~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |TopLevel|SyncCount:sync_count
@@ -94,9 +152,36 @@ v_counter[9] <= v_counter[9]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |TopLevel|MoveSquare:move_square
-reset => reset.IN1
-clock => clock.IN1
-vertical[0] <= <VCC>
+reset => vertical.OUTPUTSELECT
+reset => vertical.OUTPUTSELECT
+reset => vertical.OUTPUTSELECT
+reset => vertical.OUTPUTSELECT
+reset => vertical.OUTPUTSELECT
+reset => vertical.OUTPUTSELECT
+reset => vertical.OUTPUTSELECT
+reset => vertical.OUTPUTSELECT
+reset => vertical.OUTPUTSELECT
+reset => vertical[0]~reg0.ENA
+enable => vertical.OUTPUTSELECT
+enable => vertical.OUTPUTSELECT
+enable => vertical.OUTPUTSELECT
+enable => vertical.OUTPUTSELECT
+enable => vertical.OUTPUTSELECT
+enable => vertical.OUTPUTSELECT
+enable => vertical.OUTPUTSELECT
+enable => vertical.OUTPUTSELECT
+enable => vertical.OUTPUTSELECT
+clock => vertical[0]~reg0.CLK
+clock => vertical[1]~reg0.CLK
+clock => vertical[2]~reg0.CLK
+clock => vertical[3]~reg0.CLK
+clock => vertical[4]~reg0.CLK
+clock => vertical[5]~reg0.CLK
+clock => vertical[6]~reg0.CLK
+clock => vertical[7]~reg0.CLK
+clock => vertical[8]~reg0.CLK
+clock => vertical[9]~reg0.CLK
+vertical[0] <= vertical[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 vertical[1] <= vertical[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 vertical[2] <= vertical[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 vertical[3] <= vertical[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
@@ -106,64 +191,6 @@ vertical[6] <= vertical[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 vertical[7] <= vertical[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 vertical[8] <= vertical[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 vertical[9] <= vertical[9]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|TopLevel|MoveSquare:move_square|Clock:dut
-clock => pulse_clock~reg0.CLK
-clock => clk_count[0].CLK
-clock => clk_count[1].CLK
-clock => clk_count[2].CLK
-clock => clk_count[3].CLK
-clock => clk_count[4].CLK
-clock => clk_count[5].CLK
-clock => clk_count[6].CLK
-clock => clk_count[7].CLK
-clock => clk_count[8].CLK
-clock => clk_count[9].CLK
-clock => clk_count[10].CLK
-clock => clk_count[11].CLK
-clock => clk_count[12].CLK
-clock => clk_count[13].CLK
-clock => clk_count[14].CLK
-clock => clk_count[15].CLK
-clock => clk_count[16].CLK
-clock => clk_count[17].CLK
-clock => clk_count[18].CLK
-clock => clk_count[19].CLK
-clock => clk_count[20].CLK
-clock => clk_count[21].CLK
-clock => clk_count[22].CLK
-clock => clk_count[23].CLK
-clock => clk_count[24].CLK
-clock => clk_count[25].CLK
-reset => pulse_clock~reg0.ACLR
-reset => clk_count[0].ACLR
-reset => clk_count[1].ACLR
-reset => clk_count[2].ACLR
-reset => clk_count[3].ACLR
-reset => clk_count[4].ACLR
-reset => clk_count[5].ACLR
-reset => clk_count[6].ACLR
-reset => clk_count[7].ACLR
-reset => clk_count[8].ACLR
-reset => clk_count[9].ACLR
-reset => clk_count[10].ACLR
-reset => clk_count[11].ACLR
-reset => clk_count[12].ACLR
-reset => clk_count[13].ACLR
-reset => clk_count[14].ACLR
-reset => clk_count[15].ACLR
-reset => clk_count[16].ACLR
-reset => clk_count[17].ACLR
-reset => clk_count[18].ACLR
-reset => clk_count[19].ACLR
-reset => clk_count[20].ACLR
-reset => clk_count[21].ACLR
-reset => clk_count[22].ACLR
-reset => clk_count[23].ACLR
-reset => clk_count[24].ACLR
-reset => clk_count[25].ACLR
-pulse_clock <= pulse_clock~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |TopLevel|DrawSquare:ball

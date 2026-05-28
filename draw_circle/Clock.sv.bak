@@ -6,9 +6,9 @@ module Clock(
 
 logic [25:0] clk_count;
 
-always_ff @(posedge clock or posedge reset) begin 
+always_ff @(posedge clock or negedge reset) begin 
 
-	if (reset) begin 
+	if (!reset) begin 
 		clk_count <= 26'd0;
 		pulse_clock <= 1'b0;
 	end 

@@ -14,6 +14,7 @@ module TopLevel(
 );
 
 wire enable_n;
+wire enable;
 wire [3:0] red_decoded, green_decoded, blue_decoded;
 wire [9:0] h_counter, v_counter;
 wire [3:0] color;
@@ -23,6 +24,12 @@ ClockDivider clock_divider(
 	.clock50(clock50),
 	.reset(reset),
 	.enable_n(enable_n)
+);
+
+Clock clock(
+	.clock(clock50),
+	.reset(reset),
+	.pulse_clock(enable)
 );
 
 SyncCount sync_count(
@@ -36,7 +43,8 @@ SyncCount sync_count(
 
 MoveSquare move_square(
 	.reset(reset),
-	.clock(clock),
+	.enable(enable),
+	.clock(clock50),
 	.vertical(y_coordinate)
 );
 

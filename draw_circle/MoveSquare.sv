@@ -1,22 +1,16 @@
 module MoveSquare(
 	input logic reset,
+	input logic enable,
 	input logic clock,
 	output logic [9:0] vertical
 );
 
-initial begin 
-	vertical = 10'd263;
-end
-
-logic enable;
-
-Clock dut(
-	.reset(reset),
-	.clock(clock),
-	.pulse_clock(enable)
-);
-
-always_ff @(posedge enable) begin
-	vertical <= vertical - 10;
+always_ff @(posedge clock) begin
+	if (reset) begin 
+		vertical <= 10'd263;
+	end
+	else if (enable) begin 
+		vertical <= vertical - 10;
+	end
 end
 endmodule

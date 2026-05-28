@@ -1,5 +1,5 @@
 Analysis & Synthesis report for drawing
-Wed May 27 15:58:06 2026
+Wed May 27 19:10:27 2026
 Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 
 
@@ -14,8 +14,8 @@ Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Registers Removed During Synthesis
-  9. Removed Registers Triggering Further Register Optimizations
- 10. General Register Statistics
+  9. General Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
  11. Port Connectivity Checks: "SyncCount:sync_count"
  12. Post-Synthesis Netlist Statistics for Top Partition
  13. Elapsed Time Per Partition
@@ -46,15 +46,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed May 27 15:58:06 2026       ;
+; Analysis & Synthesis Status        ; Successful - Wed May 27 19:10:27 2026       ;
 ; Quartus Prime Version              ; 21.1.0 Build 842 10/21/2021 SJ Lite Edition ;
 ; Revision Name                      ; drawing                                     ;
 ; Top-level Entity Name              ; TopLevel                                    ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 45                                          ;
-;     Total combinational functions  ; 45                                          ;
-;     Dedicated logic registers      ; 23                                          ;
-; Total registers                    ; 23                                          ;
+; Total logic elements               ; 140                                         ;
+;     Total combinational functions  ; 140                                         ;
+;     Dedicated logic registers      ; 59                                          ;
+; Total registers                    ; 59                                          ;
 ; Total pins                         ; 16                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -189,20 +189,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-------------+
 ; Resource                                    ; Usage       ;
 +---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 45          ;
+; Estimated Total logic elements              ; 140         ;
 ;                                             ;             ;
-; Total combinational functions               ; 45          ;
+; Total combinational functions               ; 140         ;
 ; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 14          ;
-;     -- 3 input functions                    ; 2           ;
-;     -- <=2 input functions                  ; 29          ;
+;     -- 4 input functions                    ; 23          ;
+;     -- 3 input functions                    ; 21          ;
+;     -- <=2 input functions                  ; 96          ;
 ;                                             ;             ;
 ; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 27          ;
-;     -- arithmetic mode                      ; 18          ;
+;     -- normal mode                          ; 57          ;
+;     -- arithmetic mode                      ; 83          ;
 ;                                             ;             ;
-; Total registers                             ; 23          ;
-;     -- Dedicated logic registers            ; 23          ;
+; Total registers                             ; 59          ;
+;     -- Dedicated logic registers            ; 59          ;
 ;     -- I/O registers                        ; 0           ;
 ;                                             ;             ;
 ; I/O pins                                    ; 16          ;
@@ -210,9 +210,9 @@ https://fpgasoftware.intel.com/eula.
 ; Embedded Multiplier 9-bit elements          ; 0           ;
 ;                                             ;             ;
 ; Maximum fan-out node                        ; reset~input ;
-; Maximum fan-out                             ; 24          ;
-; Total fan-out                               ; 226         ;
-; Average fan-out                             ; 2.26        ;
+; Maximum fan-out                             ; 61          ;
+; Total fan-out                               ; 568         ;
+; Average fan-out                             ; 2.46        ;
 +---------------------------------------------+-------------+
 
 
@@ -221,41 +221,25 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------+--------------+--------------+
 ; Compilation Hierarchy Node      ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                  ; Entity Name  ; Library Name ;
 +---------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------+--------------+--------------+
-; |TopLevel                       ; 45 (0)              ; 23 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 16   ; 0            ; 0          ; |TopLevel                            ; TopLevel     ; work         ;
+; |TopLevel                       ; 140 (1)             ; 59 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 16   ; 0            ; 0          ; |TopLevel                            ; TopLevel     ; work         ;
+;    |Clock:clock|                ; 48 (48)             ; 27 (27)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |TopLevel|Clock:clock                ; Clock        ; work         ;
 ;    |ClockDivider:clock_divider| ; 1 (1)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |TopLevel|ClockDivider:clock_divider ; ClockDivider ; work         ;
-;    |DrawSquare:ball|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |TopLevel|DrawSquare:ball            ; DrawSquare   ; work         ;
-;    |Mux:red_mux|                ; 6 (6)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |TopLevel|Mux:red_mux                ; Mux          ; work         ;
-;    |SyncCount:sync_count|       ; 37 (37)             ; 22 (22)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |TopLevel|SyncCount:sync_count       ; SyncCount    ; work         ;
+;    |DrawSquare:ball|            ; 38 (38)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |TopLevel|DrawSquare:ball            ; DrawSquare   ; work         ;
+;    |MoveSquare:move_square|     ; 10 (10)             ; 9 (9)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |TopLevel|MoveSquare:move_square     ; MoveSquare   ; work         ;
+;    |Mux:red_mux|                ; 4 (4)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |TopLevel|Mux:red_mux                ; Mux          ; work         ;
+;    |SyncCount:sync_count|       ; 38 (38)             ; 22 (22)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |TopLevel|SyncCount:sync_count       ; SyncCount    ; work         ;
 +---------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------+--------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                       ;
-+---------------------------------------------------+--------------------------------------+
-; Register name                                     ; Reason for Removal                   ;
-+---------------------------------------------------+--------------------------------------+
-; MoveSquare:move_square|Clock:dut|pulse_clock      ; Stuck at GND due to stuck port clock ;
-; MoveSquare:move_square|Clock:dut|clk_count[0..25] ; Stuck at GND due to stuck port clock ;
-; MoveSquare:move_square|vertical[9]                ; Stuck at GND due to stuck port clock ;
-; MoveSquare:move_square|vertical[8]                ; Stuck at VCC due to stuck port clock ;
-; MoveSquare:move_square|vertical[3..7]             ; Stuck at GND due to stuck port clock ;
-; MoveSquare:move_square|vertical[1,2]              ; Stuck at VCC due to stuck port clock ;
-; Total Number of Removed Registers = 36            ;                                      ;
-+---------------------------------------------------+--------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                      ;
-+----------------------------------------------+-------------------------+-------------------------------------------------------------------------+
-; Register name                                ; Reason for Removal      ; Registers Removed due to This Register                                  ;
-+----------------------------------------------+-------------------------+-------------------------------------------------------------------------+
-; MoveSquare:move_square|Clock:dut|pulse_clock ; Stuck at GND            ; MoveSquare:move_square|vertical[9], MoveSquare:move_square|vertical[8], ;
-;                                              ; due to stuck port clock ; MoveSquare:move_square|vertical[7], MoveSquare:move_square|vertical[6], ;
-;                                              ;                         ; MoveSquare:move_square|vertical[5], MoveSquare:move_square|vertical[4], ;
-;                                              ;                         ; MoveSquare:move_square|vertical[3], MoveSquare:move_square|vertical[2], ;
-;                                              ;                         ; MoveSquare:move_square|vertical[1]                                      ;
-+----------------------------------------------+-------------------------+-------------------------------------------------------------------------+
++--------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                             ;
++---------------------------------------+----------------------------------------+
+; Register name                         ; Reason for Removal                     ;
++---------------------------------------+----------------------------------------+
+; MoveSquare:move_square|vertical[0]    ; Stuck at VCC due to stuck port data_in ;
+; Total Number of Removed Registers = 1 ;                                        ;
++---------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -263,14 +247,23 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 23    ;
+; Total registers                              ; 59    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 23    ;
+; Number of registers using Synchronous Load   ; 9     ;
+; Number of registers using Asynchronous Clear ; 50    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 10    ;
+; Number of registers using Clock Enable       ; 19    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |TopLevel|MoveSquare:move_square|vertical[9] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -288,20 +281,23 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 16                          ;
-; cycloneiii_ff         ; 23                          ;
-;     CLR               ; 13                          ;
+; cycloneiii_ff         ; 59                          ;
+;     CLR               ; 40                          ;
 ;     ENA CLR           ; 10                          ;
-; cycloneiii_lcell_comb ; 45                          ;
-;     arith             ; 18                          ;
-;         2 data inputs ; 18                          ;
-;     normal            ; 27                          ;
-;         1 data inputs ; 3                           ;
-;         2 data inputs ; 8                           ;
-;         3 data inputs ; 2                           ;
-;         4 data inputs ; 14                          ;
+;     ENA SLD           ; 9                           ;
+; cycloneiii_lcell_comb ; 140                         ;
+;     arith             ; 83                          ;
+;         2 data inputs ; 66                          ;
+;         3 data inputs ; 17                          ;
+;     normal            ; 57                          ;
+;         0 data inputs ; 3                           ;
+;         1 data inputs ; 5                           ;
+;         2 data inputs ; 22                          ;
+;         3 data inputs ; 4                           ;
+;         4 data inputs ; 23                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 3.00                        ;
-; Average LUT depth     ; 2.50                        ;
+; Max LUT depth         ; 5.60                        ;
+; Average LUT depth     ; 3.48                        ;
 +-----------------------+-----------------------------+
 
 
@@ -320,7 +316,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
-    Info: Processing started: Wed May 27 15:57:59 2026
+    Info: Processing started: Wed May 27 19:10:18 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off drawing -c drawing
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
@@ -341,18 +337,17 @@ Info (12021): Found 1 design units, including 1 entities, in source file Clock.s
     Info (12023): Found entity 1: Clock File: /home/charlesmaebi/FPGA-VGA/draw_circle/Clock.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file MoveSquare.sv
     Info (12023): Found entity 1: MoveSquare File: /home/charlesmaebi/FPGA-VGA/draw_circle/MoveSquare.sv Line: 1
-Warning (10236): Verilog HDL Implicit Net warning at TopLevel.sv(39): created implicit net for "clock" File: /home/charlesmaebi/FPGA-VGA/draw_circle/TopLevel.sv Line: 39
 Info (12127): Elaborating entity "TopLevel" for the top level hierarchy
-Info (12128): Elaborating entity "ClockDivider" for hierarchy "ClockDivider:clock_divider" File: /home/charlesmaebi/FPGA-VGA/draw_circle/TopLevel.sv Line: 26
-Info (12128): Elaborating entity "SyncCount" for hierarchy "SyncCount:sync_count" File: /home/charlesmaebi/FPGA-VGA/draw_circle/TopLevel.sv Line: 35
+Info (12128): Elaborating entity "ClockDivider" for hierarchy "ClockDivider:clock_divider" File: /home/charlesmaebi/FPGA-VGA/draw_circle/TopLevel.sv Line: 27
+Info (12128): Elaborating entity "Clock" for hierarchy "Clock:clock" File: /home/charlesmaebi/FPGA-VGA/draw_circle/TopLevel.sv Line: 33
+Warning (10230): Verilog HDL assignment warning at Clock.sv(22): truncated value with size 32 to match size of target (26) File: /home/charlesmaebi/FPGA-VGA/draw_circle/Clock.sv Line: 22
+Info (12128): Elaborating entity "SyncCount" for hierarchy "SyncCount:sync_count" File: /home/charlesmaebi/FPGA-VGA/draw_circle/TopLevel.sv Line: 42
 Warning (10230): Verilog HDL assignment warning at SyncCount.sv(26): truncated value with size 32 to match size of target (10) File: /home/charlesmaebi/FPGA-VGA/draw_circle/SyncCount.sv Line: 26
 Warning (10230): Verilog HDL assignment warning at SyncCount.sv(29): truncated value with size 32 to match size of target (10) File: /home/charlesmaebi/FPGA-VGA/draw_circle/SyncCount.sv Line: 29
-Info (12128): Elaborating entity "MoveSquare" for hierarchy "MoveSquare:move_square" File: /home/charlesmaebi/FPGA-VGA/draw_circle/TopLevel.sv Line: 41
-Warning (10230): Verilog HDL assignment warning at MoveSquare.sv(20): truncated value with size 32 to match size of target (10) File: /home/charlesmaebi/FPGA-VGA/draw_circle/MoveSquare.sv Line: 20
-Info (12128): Elaborating entity "Clock" for hierarchy "MoveSquare:move_square|Clock:dut" File: /home/charlesmaebi/FPGA-VGA/draw_circle/MoveSquare.sv Line: 17
-Warning (10230): Verilog HDL assignment warning at Clock.sv(22): truncated value with size 32 to match size of target (26) File: /home/charlesmaebi/FPGA-VGA/draw_circle/Clock.sv Line: 22
-Info (12128): Elaborating entity "DrawSquare" for hierarchy "DrawSquare:ball" File: /home/charlesmaebi/FPGA-VGA/draw_circle/TopLevel.sv Line: 50
-Info (12128): Elaborating entity "Mux" for hierarchy "Mux:red_mux" File: /home/charlesmaebi/FPGA-VGA/draw_circle/TopLevel.sv Line: 57
+Info (12128): Elaborating entity "MoveSquare" for hierarchy "MoveSquare:move_square" File: /home/charlesmaebi/FPGA-VGA/draw_circle/TopLevel.sv Line: 49
+Warning (10230): Verilog HDL assignment warning at MoveSquare.sv(13): truncated value with size 32 to match size of target (10) File: /home/charlesmaebi/FPGA-VGA/draw_circle/MoveSquare.sv Line: 13
+Info (12128): Elaborating entity "DrawSquare" for hierarchy "DrawSquare:ball" File: /home/charlesmaebi/FPGA-VGA/draw_circle/TopLevel.sv Line: 58
+Info (12128): Elaborating entity "Mux" for hierarchy "Mux:red_mux" File: /home/charlesmaebi/FPGA-VGA/draw_circle/TopLevel.sv Line: 65
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (286030): Timing-Driven Synthesis is running
 Warning (20013): Ignored 24 assignments for entity "VgaDriver" -- entity does not exist in design
@@ -382,14 +377,14 @@ Warning (20013): Ignored 24 assignments for entity "VgaDriver" -- entity does no
     Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ENABLE_STRICT_PRESERVATION OFF -entity VgaDriver -section_id Top was ignored
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 61 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 157 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 14 output pins
-    Info (21061): Implemented 45 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 33 warnings
-    Info: Peak virtual memory: 467 megabytes
-    Info: Processing ended: Wed May 27 15:58:06 2026
-    Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:18
+    Info (21061): Implemented 141 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 32 warnings
+    Info: Peak virtual memory: 469 megabytes
+    Info: Processing ended: Wed May 27 19:10:27 2026
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:20
 
 
