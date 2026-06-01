@@ -18,7 +18,8 @@ wire enable;
 wire [3:0] red_decoded, green_decoded, blue_decoded;
 wire [9:0] h_counter, v_counter;
 wire [3:0] color;
-wire [9:0] y_coordinate;
+wire [9:0] upper, lower;
+wire collision_pulse;
 
 ClockDivider clock_divider(
 	.clock50(clock50),
@@ -41,11 +42,21 @@ SyncCount sync_count(
 	.v_counter(v_counter)
 );
 
+Collision collision(
+	.clock(clock50),
+	.reset(reset),
+	.upper(upper),
+	.lower(lower),
+	.collision_pulse(collision_pulse)
+);
+
 MoveSquare move_square(
 	.reset(reset),
 	.enable(enable),
 	.clock(clock50),
-	.vertical(y_coordinate)
+	.direction_up(collision_pulse),
+	.upper(upper),
+	.lower(lower)
 );
 
 
@@ -53,7 +64,8 @@ DrawSquare ball(
 	.h_counter(h_counter),
 	.v_counter(v_counter),
 	.reset(reset),
-	.y_coordinate(y_coordinate),
+	.upper(upper),
+	.lower(lower),
 	.color(color)
 );
 

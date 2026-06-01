@@ -14,7 +14,7 @@ always_ff @(posedge clock or posedge reset) begin
 	end 
 	else begin 
 		pulse_clock <= 1'b0;
-		if (clk_count == 26'd50_000_000) begin 
+		if (clk_count == 26'd500_000) begin 
 			clk_count <= 26'd0;
 			pulse_clock <= 1'b1;
 		end
