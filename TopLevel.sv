@@ -57,18 +57,18 @@ Collision collision(
 );
 
 MoveSquare #(
-	.SPEEDBITS(2)
+	.SPEEDBITS(1)
 
 )move_square(
 	.reset(reset),
 	.enable(enable_movement),
 	.clock(clock50),
-	.speed_y(3),
+	.speed_y(1),
 	.direction_up(collision_pulse_vertical),
 	.upper(upper),
 	.lower(lower),
 	
-	.speed_x(3),
+	.speed_x(1),
 	.direction_left(collision_pulse_horizontal),
 	.left(left),
 	.right(right)
@@ -99,6 +99,7 @@ ClockDividerSound clock_sound(
 	.clock_signal(sound_signal)
 );
 
+/*
 DrawSquare ball(
 	.h_counter(h_counter),
 	.v_counter(v_counter),
@@ -108,7 +109,20 @@ DrawSquare ball(
 	.left(left),
 	.right(right),
 	.color(color)
+);*/
+
+Draw_DVD logo(
+	.h_counter(h_counter),
+	.v_counter(v_counter),
+	.reset(reset),
+	.clock(clock50),
+	.upper(upper),
+	.lower(lower),
+	.left(left),
+	.right(right),
+	.color(color)
 );
+
 
 Mux red_mux(
 	.hsync(hsync),
