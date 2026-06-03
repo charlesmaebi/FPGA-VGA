@@ -18,9 +18,9 @@ module MoveSquare#(
 always_ff @(posedge clock) begin
 	if (reset) begin 
 		upper <= 10'd239;
-		lower <= 10'd289;
+		lower <= 10'd358;
 		left <= 10'd423;
-		right <= 10'd473;
+		right <= 10'd679;
 	end
 	else if (enable) begin 
 		// check if the upper is above pixel 1
