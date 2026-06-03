@@ -1,0 +1,9 @@
+module MoveSquare(
+	input logic reset,
+	input logic clock,
+	output logic vertical
+);
+
+always_ff @(posedge clock) begin 
+
+end

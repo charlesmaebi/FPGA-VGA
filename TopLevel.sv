@@ -10,7 +10,8 @@ module TopLevel(
 	output logic vsync,
 	output logic [3:0] red_display, // 0000 off 1111 on
 	output logic [3:0] blue_display, // 0000 off 1111 on
-	output logic [3:0] green_display // 0000 off 1111 on
+	output logic [3:0] green_display, // 0000 off 1111 on
+	output logic sound_signal
 );
 
 wire clock25; // changed name for clarity 
@@ -20,6 +21,7 @@ wire [9:0] h_counter, v_counter;
 wire [3:0] color;
 wire [9:0] upper, lower, left, right;
 wire collision_pulse_vertical, collision_pulse_horizontal;
+wire collision_has_changed, freq_enable; //sound wires
 
 ClockDivider clock_divider(
 	.clock50(clock50),
@@ -70,6 +72,31 @@ MoveSquare #(
 	.direction_left(collision_pulse_horizontal),
 	.left(left),
 	.right(right)
+);
+
+// SOUND
+
+
+CollisionHasChanged coll_change(
+	.clock50(clock50),
+	.reset(reset),
+	.collision_h(collision_pulse_horizontal),
+	.collision_v(collision_pulse_vertical),
+	.collision_has_changed(collision_has_changed)
+);
+
+CountQuarterSecond quart_sec(
+	.clock50(clock50),
+	.reset(reset),
+	.collision_has_changed(collision_has_changed),
+	.freq_enable(freq_enable)
+);
+
+ClockDividerSound clock_sound(
+	.clock50(clock50),
+	.reset(reset),
+	.enable(freq_enable),
+	.clock_signal(sound_signal)
 );
 
 /*
