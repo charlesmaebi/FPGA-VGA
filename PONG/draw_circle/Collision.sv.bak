@@ -1,0 +1,12 @@
+module Collision(
+	input logic clock,
+	input logic [9:0] upper,
+	input logic [9;0] lower,
+	output logic collision_pulse
+);
+
+always_ff @(posedge clock) begin 
+	collision_pulse <= 1'b0;
+	if (upper <= 1 || lower >= 524) begin 
+		collision_pulse <= 1'b1;
+end

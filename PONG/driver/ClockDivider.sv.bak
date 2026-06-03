@@ -1,0 +1,21 @@
+// Divide clock pulse by 2
+module ClockDiv25(
+	input logic clock50,
+	input logic reset,
+	output logic enable_n
+);
+
+logic counter;
+
+always_ff @(posedge clock50) begin 
+	enable_n <= 0;
+	if (counter == 1) begin 
+		enable_n <= 1;
+		counter <= 0;
+	end
+	else begin 
+		counter <= 1;
+	end
+end
+
+endmodule

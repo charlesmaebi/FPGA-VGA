@@ -42,7 +42,7 @@ set_global_assignment -name DEVICE 10M50DAF484C7G
 set_global_assignment -name TOP_LEVEL_ENTITY TopLevel
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 21.1.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "12:36:49  MAY 27, 2026"
-set_global_assignment -name LAST_QUARTUS_VERSION "22.1std.1 Lite Edition"
+set_global_assignment -name LAST_QUARTUS_VERSION "21.1.0 Lite Edition"
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
@@ -79,4 +79,11 @@ set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity V
 set_global_assignment -name SYSTEMVERILOG_FILE Clock.sv
 set_global_assignment -name SYSTEMVERILOG_FILE MoveSquare.sv
 set_global_assignment -name SYSTEMVERILOG_FILE Collision.sv
+set_global_assignment -name SYSTEMVERILOG_FILE output_files/ClockDividerSound.sv
+set_global_assignment -name SYSTEMVERILOG_FILE output_files/Sound.sv
+set_location_assignment PIN_AA7 -to sound_signal
+set_global_assignment -name SYSTEMVERILOG_FILE CollisionHasChanged.sv
+set_global_assignment -name SYSTEMVERILOG_FILE CountQuarterSecond.sv
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name SYSTEMVERILOG_FILE MovePaddle.sv
+set_global_assignment -name SYSTEMVERILOG_FILE DrawPaddle.sv
