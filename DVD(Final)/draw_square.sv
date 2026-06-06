@@ -1,3 +1,9 @@
+// ============================================================================
+// Project Name: Draw Square
+// Author:       Charles Aebi, Sean Dauch
+// Description:  Early prototype for drawing the box used to outline the DVD logo
+// ============================================================================
+
 // 440-450 H
 // 258-268 V
 module DrawSquare(
