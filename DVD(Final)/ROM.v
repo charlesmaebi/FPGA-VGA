@@ -1,3 +1,10 @@
+// ============================================================================
+// Project Name: ROM
+// Author:       Sean Dauch, Steven Cao
+// Description:  Stores the mif file for the DVD logo
+// Sources Used: lab 7 document
+// ============================================================================
+
 // megafunction wizard: %ROM: 1-PORT%
 // GENERATION: STANDARD
 // VERSION: WM1.0
