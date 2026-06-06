@@ -1,8 +1,9 @@
-/*
-Basic implementation:
-Two switches control the 
-color display, either red, blue, green, or blank - 2bit
-*/
+// ============================================================================
+// Project Name: Top Level
+// Author:       Charles Aebi, Sean Dauch, Steven Cao, Alan Nguyen
+// Description:  Serves as the top leve to connect the different modules
+//				 together and interface with the vga output
+// ============================================================================
 module TopLevel(
 	input logic clock50,
 	input logic reset,
