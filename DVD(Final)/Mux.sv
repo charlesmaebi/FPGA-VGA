@@ -1,3 +1,9 @@
+// ============================================================================
+// Project Name: Mux
+// Author:       Charles Aebi
+// Description:  Only displays color when hsync and vsync are high
+// Sources Used: Lab 6 document
+// ============================================================================
 module Mux(
 	input logic vsync,
 	input logic hsync,
