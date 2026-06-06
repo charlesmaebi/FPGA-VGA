@@ -1,3 +1,10 @@
+// ============================================================================
+// Project Name: Draw_DVD
+// Author:       Charles Aebi, Sean Dauch, Steven Cao, Alan Nguyen
+// Description:  Draws a DVD_logo inside a predefined box
+// Sources Used: mifMaker, Lab 7 document
+// ============================================================================
+
 module Draw_DVD(
 	input logic [9:0] h_counter,
 	input logic [9:0] v_counter,
@@ -13,6 +20,7 @@ module Draw_DVD(
 logic [14:0] mif_address;
 logic [15:0] mif_color;
 
+// where the mif file is stored
 ROM dvd_logo(
 	.address (mif_address),
 	.clock(clock),
@@ -21,10 +29,13 @@ ROM dvd_logo(
 
 always_ff @(posedge clock) begin 
 
+	// on reset draw black to the entire screen
 	if (reset) begin 
 		color = 4'b0000;
 		mif_address = 15'b0;
 	end
+
+	// only prints dvd if inside the box
 	else if ((h_counter >= left && h_counter <= right) && (v_counter >= upper && v_counter <= lower)) begin
 
 		// print white when dvd is not black
@@ -35,7 +46,8 @@ always_ff @(posedge clock) begin
 			color = 4'b0;
 		
 		end
-			
+
+		// little algorithm to find the mif address based on location in the box
 		mif_address <= (h_counter-left)+ (256*(v_counter-upper));
 		
 	end 
