@@ -1,4 +1,11 @@
-//This module will take in a color value and convert it to four bit
+// ============================================================================
+// Project Name: Color Decoder
+// Author:       Charles Aebi
+// Description:  This module will take in a 2 bit color value and convert it to four bit
+// Sources Used: Lab 6 Document
+// ============================================================================
+
+
 module Decoder(
 	input logic [1:0] color_in,
 	output logic [3:0] color_out
