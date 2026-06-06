@@ -1,3 +1,11 @@
+// ============================================================================
+// Project Name: Sync Count
+// Author:       Charles Aebi
+// Description:  Creates a coordinate system for where to draw and tells when
+//				 you can draw a pixel to the screen
+// Sources Used: Lab 6 document
+// ============================================================================
+
 module SyncCount(
 	input logic enable,
 	input logic reset,
