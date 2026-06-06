@@ -1,3 +1,9 @@
+// ============================================================================
+// Project Name: Collision Testbench
+// Author:       Alan Nguyen
+// Description:  A testbench made to test the collision module
+// ============================================================================
+
 `timescale 1ns / 1ps
 
 module tb_collision();
