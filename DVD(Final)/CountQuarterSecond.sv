@@ -1,3 +1,9 @@
+// ============================================================================
+// Project Name: CountQuarterSecond
+// Author:       Charles Aebi
+// Description:  When a collision occurs, this module sends an enable signal to the
+// clock divivder responsible for sound (we reduced this to 1/10th of a second after physical testing)
+// ============================================================================
 module CountQuarterSecond(
 	input logic clock50,
 	input logic reset,
@@ -9,7 +15,7 @@ logic [25:0] counter;
 logic run_clock;
 
 always_ff @(posedge clock50) begin 
-
+	// RESET
 	if (reset) begin 
 		counter <= 26'd0;
 		freq_enable <= 1'b0;

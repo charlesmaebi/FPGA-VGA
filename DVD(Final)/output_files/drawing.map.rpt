@@ -1,5 +1,5 @@
 Analysis & Synthesis report for drawing
-Fri Jun  5 15:35:35 2026
+Sat Jun  6 20:24:53 2026
 Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 
 
@@ -54,7 +54,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Jun  5 15:35:35 2026       ;
+; Analysis & Synthesis Status        ; Successful - Sat Jun  6 20:24:53 2026       ;
 ; Quartus Prime Version              ; 21.1.0 Build 842 10/21/2021 SJ Lite Edition ;
 ; Revision Name                      ; drawing                                     ;
 ; Top-level Entity Name              ; TopLevel                                    ;
@@ -189,7 +189,7 @@ https://fpgasoftware.intel.com/eula.
 ; Clock.sv                          ; yes             ; User SystemVerilog HDL File            ; /home/charlesmaebi/FPGA-VGA/DVD(Final)/Clock.sv                                             ;         ;
 ; MoveSquare.sv                     ; yes             ; User SystemVerilog HDL File            ; /home/charlesmaebi/FPGA-VGA/DVD(Final)/MoveSquare.sv                                        ;         ;
 ; Collision.sv                      ; yes             ; User SystemVerilog HDL File            ; /home/charlesmaebi/FPGA-VGA/DVD(Final)/Collision.sv                                         ;         ;
-; ROM.v                             ; yes             ; User Wizard-Generated File             ; /home/charlesmaebi/FPGA-VGA/DVD(Final)/ROM.v                                                ;         ;
+; ROM.v                             ; yes             ; User Verilog HDL File                  ; /home/charlesmaebi/FPGA-VGA/DVD(Final)/ROM.v                                                ;         ;
 ; Draw_DVD.sv                       ; yes             ; User SystemVerilog HDL File            ; /home/charlesmaebi/FPGA-VGA/DVD(Final)/Draw_DVD.sv                                          ;         ;
 ; output_files/ClockDividerSound.sv ; yes             ; User SystemVerilog HDL File            ; /home/charlesmaebi/FPGA-VGA/DVD(Final)/output_files/ClockDividerSound.sv                    ;         ;
 ; CollisionHasChanged.sv            ; yes             ; User SystemVerilog HDL File            ; /home/charlesmaebi/FPGA-VGA/DVD(Final)/CollisionHasChanged.sv                               ;         ;
@@ -204,7 +204,7 @@ https://fpgasoftware.intel.com/eula.
 ; altram.inc                        ; yes             ; Megafunction                           ; /home/charlesmaebi/intelFPGA_pro/21.1/quartus/libraries/megafunctions/altram.inc            ;         ;
 ; altdpram.inc                      ; yes             ; Megafunction                           ; /home/charlesmaebi/intelFPGA_pro/21.1/quartus/libraries/megafunctions/altdpram.inc          ;         ;
 ; db/altsyncram_5q91.tdf            ; yes             ; Auto-Generated Megafunction            ; /home/charlesmaebi/FPGA-VGA/DVD(Final)/db/altsyncram_5q91.tdf                               ;         ;
-; ./mifMaker/mifData.mif            ; yes             ; Auto-Found Memory Initialization File  ; /home/charlesmaebi/FPGA-VGA/DVD(Final)/mifMaker/mifData.mif                                 ;         ;
+; mifMaker/mifData.mif              ; yes             ; Auto-Found Memory Initialization File  ; /home/charlesmaebi/FPGA-VGA/DVD(Final)/mifMaker/mifData.mif                                 ;         ;
 ; db/decode_5j9.tdf                 ; yes             ; Auto-Generated Megafunction            ; /home/charlesmaebi/FPGA-VGA/DVD(Final)/db/decode_5j9.tdf                                    ;         ;
 ; db/mux_b3b.tdf                    ; yes             ; Auto-Generated Megafunction            ; /home/charlesmaebi/FPGA-VGA/DVD(Final)/db/mux_b3b.tdf                                       ;         ;
 +-----------------------------------+-----------------+----------------------------------------+---------------------------------------------------------------------------------------------+---------+
@@ -282,7 +282,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------+--------------+---------+--------------+--------------+--------------------------------------+-----------------+
 ; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                      ; IP Include File ;
 +--------+--------------+---------+--------------+--------------+--------------------------------------+-----------------+
-; Altera ; ROM: 1-PORT  ; 22.1    ; N/A          ; N/A          ; |TopLevel|Draw_DVD:logo|ROM:dvd_logo ; ROM.v           ;
+; N/A    ; ROM: 1-PORT  ; 22.1    ; N/A          ; N/A          ; |TopLevel|Draw_DVD:logo|ROM:dvd_logo ;                 ;
 +--------+--------------+---------+--------------+--------------+--------------------------------------+-----------------+
 
 
@@ -491,63 +491,63 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
-    Info: Processing started: Fri Jun  5 15:35:25 2026
+    Info: Processing started: Sat Jun  6 20:24:43 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off drawing -c drawing
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file SyncCount.sv
-    Info (12023): Found entity 1: SyncCount File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/SyncCount.sv Line: 1
+    Info (12023): Found entity 1: SyncCount File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/SyncCount.sv Line: 9
 Info (12021): Found 1 design units, including 1 entities, in source file Decoder.sv
-    Info (12023): Found entity 1: Decoder File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/Decoder.sv Line: 2
-Warning (12090): Entity "Mux" obtained from "Mux.sv" instead of from Quartus Prime megafunction library File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/Mux.sv Line: 1
+    Info (12023): Found entity 1: Decoder File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/Decoder.sv Line: 9
+Warning (12090): Entity "Mux" obtained from "Mux.sv" instead of from Quartus Prime megafunction library File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/Mux.sv Line: 7
 Info (12021): Found 1 design units, including 1 entities, in source file Mux.sv
-    Info (12023): Found entity 1: Mux File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/Mux.sv Line: 1
+    Info (12023): Found entity 1: Mux File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/Mux.sv Line: 7
 Info (12021): Found 1 design units, including 1 entities, in source file ClockDivider.sv
-    Info (12023): Found entity 1: ClockDivider File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/ClockDivider.sv Line: 2
+    Info (12023): Found entity 1: ClockDivider File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/ClockDivider.sv Line: 8
 Info (12021): Found 1 design units, including 1 entities, in source file TopLevel.sv
-    Info (12023): Found entity 1: TopLevel File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/TopLevel.sv Line: 6
+    Info (12023): Found entity 1: TopLevel File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/TopLevel.sv Line: 7
 Info (12021): Found 1 design units, including 1 entities, in source file draw_square.sv
-    Info (12023): Found entity 1: DrawSquare File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/draw_square.sv Line: 3
+    Info (12023): Found entity 1: DrawSquare File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/draw_square.sv Line: 9
 Info (12021): Found 1 design units, including 1 entities, in source file Clock.sv
-    Info (12023): Found entity 1: Clock File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/Clock.sv Line: 1
+    Info (12023): Found entity 1: Clock File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/Clock.sv Line: 9
 Info (12021): Found 1 design units, including 1 entities, in source file MoveSquare.sv
-    Info (12023): Found entity 1: MoveSquare File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/MoveSquare.sv Line: 1
+    Info (12023): Found entity 1: MoveSquare File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/MoveSquare.sv Line: 6
 Info (12021): Found 1 design units, including 1 entities, in source file Collision.sv
-    Info (12023): Found entity 1: Collision File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/Collision.sv Line: 1
+    Info (12023): Found entity 1: Collision File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/Collision.sv Line: 7
 Info (12021): Found 1 design units, including 1 entities, in source file ROM.v
-    Info (12023): Found entity 1: ROM File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/ROM.v Line: 40
+    Info (12023): Found entity 1: ROM File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/ROM.v Line: 47
 Info (12021): Found 1 design units, including 1 entities, in source file Draw_DVD.sv
-    Info (12023): Found entity 1: Draw_DVD File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/Draw_DVD.sv Line: 1
+    Info (12023): Found entity 1: Draw_DVD File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/Draw_DVD.sv Line: 8
 Info (12021): Found 1 design units, including 1 entities, in source file output_files/ClockDividerSound.sv
-    Info (12023): Found entity 1: ClockDividerSound File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/output_files/ClockDividerSound.sv Line: 1
+    Info (12023): Found entity 1: ClockDividerSound File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/output_files/ClockDividerSound.sv Line: 6
 Info (12021): Found 1 design units, including 1 entities, in source file output_files/Sound.sv
     Info (12023): Found entity 1: Sound File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/output_files/Sound.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file CollisionHasChanged.sv
-    Info (12023): Found entity 1: CollisionHasChanged File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/CollisionHasChanged.sv Line: 1
+    Info (12023): Found entity 1: CollisionHasChanged File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/CollisionHasChanged.sv Line: 7
 Info (12021): Found 1 design units, including 1 entities, in source file CountQuarterSecond.sv
-    Info (12023): Found entity 1: CountQuarterSecond File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/CountQuarterSecond.sv Line: 1
+    Info (12023): Found entity 1: CountQuarterSecond File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/CountQuarterSecond.sv Line: 7
 Info (12021): Found 1 design units, including 1 entities, in source file MovePaddle.sv
     Info (12023): Found entity 1: MovePaddle File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/MovePaddle.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file DrawPaddle.sv
     Info (12023): Found entity 1: DrawPaddle File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/DrawPaddle.sv Line: 3
 Info (12127): Elaborating entity "TopLevel" for the top level hierarchy
-Info (12128): Elaborating entity "ClockDivider" for hierarchy "ClockDivider:clock_divider" File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/TopLevel.sv Line: 30
-Info (12128): Elaborating entity "Clock" for hierarchy "Clock:clock" File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/TopLevel.sv Line: 36
-Warning (10230): Verilog HDL assignment warning at Clock.sv(22): truncated value with size 32 to match size of target (26) File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/Clock.sv Line: 22
-Info (12128): Elaborating entity "SyncCount" for hierarchy "SyncCount:sync_count" File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/TopLevel.sv Line: 45
-Warning (10230): Verilog HDL assignment warning at SyncCount.sv(26): truncated value with size 32 to match size of target (10) File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/SyncCount.sv Line: 26
-Warning (10230): Verilog HDL assignment warning at SyncCount.sv(29): truncated value with size 32 to match size of target (10) File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/SyncCount.sv Line: 29
-Info (12128): Elaborating entity "Collision" for hierarchy "Collision:collision" File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/TopLevel.sv Line: 57
-Info (12128): Elaborating entity "MoveSquare" for hierarchy "MoveSquare:move_square" File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/TopLevel.sv Line: 75
-Info (12128): Elaborating entity "CollisionHasChanged" for hierarchy "CollisionHasChanged:coll_change" File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/TopLevel.sv Line: 86
-Info (12128): Elaborating entity "CountQuarterSecond" for hierarchy "CountQuarterSecond:quart_sec" File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/TopLevel.sv Line: 93
-Info (12128): Elaborating entity "ClockDividerSound" for hierarchy "ClockDividerSound:clock_sound" File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/TopLevel.sv Line: 100
-Info (12128): Elaborating entity "Draw_DVD" for hierarchy "Draw_DVD:logo" File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/TopLevel.sv Line: 124
-Warning (10230): Verilog HDL assignment warning at Draw_DVD.sv(39): truncated value with size 32 to match size of target (15) File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/Draw_DVD.sv Line: 39
-Info (12128): Elaborating entity "ROM" for hierarchy "Draw_DVD:logo|ROM:dvd_logo" File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/Draw_DVD.sv Line: 20
-Info (12128): Elaborating entity "altsyncram" for hierarchy "Draw_DVD:logo|ROM:dvd_logo|altsyncram:altsyncram_component" File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/ROM.v Line: 82
-Info (12130): Elaborated megafunction instantiation "Draw_DVD:logo|ROM:dvd_logo|altsyncram:altsyncram_component" File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/ROM.v Line: 82
-Info (12133): Instantiated megafunction "Draw_DVD:logo|ROM:dvd_logo|altsyncram:altsyncram_component" with the following parameter: File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/ROM.v Line: 82
+Info (12128): Elaborating entity "ClockDivider" for hierarchy "ClockDivider:clock_divider" File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/TopLevel.sv Line: 31
+Info (12128): Elaborating entity "Clock" for hierarchy "Clock:clock" File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/TopLevel.sv Line: 37
+Warning (10230): Verilog HDL assignment warning at Clock.sv(37): truncated value with size 32 to match size of target (26) File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/Clock.sv Line: 37
+Info (12128): Elaborating entity "SyncCount" for hierarchy "SyncCount:sync_count" File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/TopLevel.sv Line: 46
+Warning (10230): Verilog HDL assignment warning at SyncCount.sv(34): truncated value with size 32 to match size of target (10) File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/SyncCount.sv Line: 34
+Warning (10230): Verilog HDL assignment warning at SyncCount.sv(37): truncated value with size 32 to match size of target (10) File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/SyncCount.sv Line: 37
+Info (12128): Elaborating entity "Collision" for hierarchy "Collision:collision" File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/TopLevel.sv Line: 58
+Info (12128): Elaborating entity "MoveSquare" for hierarchy "MoveSquare:move_square" File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/TopLevel.sv Line: 76
+Info (12128): Elaborating entity "CollisionHasChanged" for hierarchy "CollisionHasChanged:coll_change" File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/TopLevel.sv Line: 87
+Info (12128): Elaborating entity "CountQuarterSecond" for hierarchy "CountQuarterSecond:quart_sec" File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/TopLevel.sv Line: 94
+Info (12128): Elaborating entity "ClockDividerSound" for hierarchy "ClockDividerSound:clock_sound" File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/TopLevel.sv Line: 101
+Info (12128): Elaborating entity "Draw_DVD" for hierarchy "Draw_DVD:logo" File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/TopLevel.sv Line: 125
+Warning (10230): Verilog HDL assignment warning at Draw_DVD.sv(51): truncated value with size 32 to match size of target (15) File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/Draw_DVD.sv Line: 51
+Info (12128): Elaborating entity "ROM" for hierarchy "Draw_DVD:logo|ROM:dvd_logo" File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/Draw_DVD.sv Line: 28
+Info (12128): Elaborating entity "altsyncram" for hierarchy "Draw_DVD:logo|ROM:dvd_logo|altsyncram:altsyncram_component" File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/ROM.v Line: 89
+Info (12130): Elaborated megafunction instantiation "Draw_DVD:logo|ROM:dvd_logo|altsyncram:altsyncram_component" File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/ROM.v Line: 89
+Info (12133): Instantiated megafunction "Draw_DVD:logo|ROM:dvd_logo|altsyncram:altsyncram_component" with the following parameter: File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/ROM.v Line: 89
     Info (12134): Parameter "address_aclr_a" = "NONE"
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
@@ -571,7 +571,7 @@ Info (12128): Elaborating entity "decode_5j9" for hierarchy "Draw_DVD:logo|ROM:d
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_b3b.tdf
     Info (12023): Found entity 1: mux_b3b File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/db/mux_b3b.tdf Line: 23
 Info (12128): Elaborating entity "mux_b3b" for hierarchy "Draw_DVD:logo|ROM:dvd_logo|altsyncram:altsyncram_component|altsyncram_5q91:auto_generated|mux_b3b:mux2" File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/db/altsyncram_5q91.tdf Line: 42
-Info (12128): Elaborating entity "Mux" for hierarchy "Mux:red_mux" File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/TopLevel.sv Line: 132
+Info (12128): Elaborating entity "Mux" for hierarchy "Mux:red_mux" File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/TopLevel.sv Line: 133
 Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (286030): Timing-Driven Synthesis is running
 Warning (20013): Ignored 24 assignments for entity "VgaDriver" -- entity does not exist in design
@@ -608,10 +608,10 @@ Info (21057): Implemented 443 device resources after synthesis - the final resou
     Info (21061): Implemented 362 logic cells
     Info (21064): Implemented 64 RAM segments
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 32 warnings
-    Info: Peak virtual memory: 486 megabytes
-    Info: Processing ended: Fri Jun  5 15:35:35 2026
+    Info: Peak virtual memory: 480 megabytes
+    Info: Processing ended: Sat Jun  6 20:24:53 2026
     Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:22
+    Info: Total CPU time (on all processors): 00:00:21
 
 
 +------------------------------------------+

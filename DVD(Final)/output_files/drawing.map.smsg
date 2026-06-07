@@ -1,1 +1,1 @@
-Warning (10268): Verilog HDL information at Draw_DVD.sv(22): always construct contains both blocking and non-blocking assignments File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/Draw_DVD.sv Line: 22
+Warning (10268): Verilog HDL information at Draw_DVD.sv(30): always construct contains both blocking and non-blocking assignments File: /home/charlesmaebi/FPGA-VGA/DVD(Final)/Draw_DVD.sv Line: 30

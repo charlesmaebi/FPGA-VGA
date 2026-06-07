@@ -1,21 +1,21 @@
 |TopLevel
 clock50 => clock50.IN8
 reset => reset.IN9
-hsync << hsync.DB_MAX_OUTPUT_PORT_TYPE
-vsync << vsync.DB_MAX_OUTPUT_PORT_TYPE
-red_display[0] << Mux:red_mux.display
-red_display[1] << Mux:red_mux.display
-red_display[2] << Mux:red_mux.display
-red_display[3] << Mux:red_mux.display
-blue_display[0] << Mux:blue_mux.display
-blue_display[1] << Mux:blue_mux.display
-blue_display[2] << Mux:blue_mux.display
-blue_display[3] << Mux:blue_mux.display
-green_display[0] << Mux:green_mux.display
-green_display[1] << Mux:green_mux.display
-green_display[2] << Mux:green_mux.display
-green_display[3] << Mux:green_mux.display
-sound_signal << ClockDividerSound:clock_sound.clock_signal
+hsync <= hsync.DB_MAX_OUTPUT_PORT_TYPE
+vsync <= vsync.DB_MAX_OUTPUT_PORT_TYPE
+red_display[0] <= Mux:red_mux.display
+red_display[1] <= Mux:red_mux.display
+red_display[2] <= Mux:red_mux.display
+red_display[3] <= Mux:red_mux.display
+blue_display[0] <= Mux:blue_mux.display
+blue_display[1] <= Mux:blue_mux.display
+blue_display[2] <= Mux:blue_mux.display
+blue_display[3] <= Mux:blue_mux.display
+green_display[0] <= Mux:green_mux.display
+green_display[1] <= Mux:green_mux.display
+green_display[2] <= Mux:green_mux.display
+green_display[3] <= Mux:green_mux.display
+sound_signal <= ClockDividerSound:clock_sound.clock_signal
 
 
 |TopLevel|ClockDivider:clock_divider
